@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.revolshen.firebaseseriesmini", appContext.packageName)
+        assertEquals("com.kn.amproject", appContext.packageName)
     }
 }
