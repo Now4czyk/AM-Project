@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "835928097766",
+    "project_id": "amproject-a4657",
+    "storage_bucket": "amproject-a4657.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835928097766:android:53859f9a035a6c85aa4c27",
+        "android_client_info": {
+          "package_name": "com.revolshen.firebaseseriesmini"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835928097766-4d2fu2k5ms4prskgvkmkl37g0j24kt1g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNx3iz57vxm7XVZ0_iAZy0ig8ver-cGzA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835928097766-4d2fu2k5ms4prskgvkmkl37g0j24kt1g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
