@@ -1,7 +1,4 @@
-package com.revolshen.firebaseseriesmini.data
-
-import java.lang.Exception
-import kotlin.jvm.Throws
+package com.kn.amproject.data
 
 data class Car (val id: String? = null,
                 val name: String? = null,

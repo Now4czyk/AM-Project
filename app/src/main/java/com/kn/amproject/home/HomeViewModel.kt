@@ -1,8 +1,8 @@
-package com.revolshen.firebaseseriesmini.home
+package com.kn.amproject.home
 
 import androidx.lifecycle.ViewModel
-import com.revolshen.firebaseseriesmini.data.Car
-import com.revolshen.firebaseseriesmini.repository.FirebaseRepository
+import com.kn.amproject.data.Car
+import com.kn.amproject.repository.FirebaseRepository
 
 class HomeViewModel : ViewModel() {
     private val repository = FirebaseRepository()

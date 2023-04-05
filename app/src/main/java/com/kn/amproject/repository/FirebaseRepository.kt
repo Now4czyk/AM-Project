@@ -1,4 +1,4 @@
-package com.revolshen.firebaseseriesmini.repository
+package com.kn.amproject.repository
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -8,8 +8,8 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.revolshen.firebaseseriesmini.data.Car
-import com.revolshen.firebaseseriesmini.data.User
+import com.kn.amproject.data.Car
+import com.kn.amproject.data.User
 
 class FirebaseRepository {
     private val REPO_DEBUG = "REPO_DEBUG"

@@ -1,17 +1,15 @@
-package com.revolshen.firebaseseriesmini.registration
+package com.kn.amproject.registration
 
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.firebase.ui.auth.data.model.User
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-import com.revolshen.firebaseseriesmini.BaseFragment
-import com.revolshen.firebaseseriesmini.R
+import com.kn.amproject.BaseFragment
+import com.kn.amproject.R
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 
 class RegistrationFragment: BaseFragment() {
@@ -42,7 +40,7 @@ class RegistrationFragment: BaseFragment() {
                 fbAuth.createUserWithEmailAndPassword(email, pass)
                     .addOnSuccessListener {authRes ->
                        if(authRes.user != null){
-                           val user = com.revolshen.firebaseseriesmini.data.User(
+                           val user = com.kn.amproject.data.User(
                                    authRes.user!!.uid,
                                    "",
                                    "",

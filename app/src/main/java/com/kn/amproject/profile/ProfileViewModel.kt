@@ -1,9 +1,9 @@
-package com.revolshen.firebaseseriesmini.profile
+package com.kn.amproject.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
-import com.revolshen.firebaseseriesmini.data.Car
-import com.revolshen.firebaseseriesmini.repository.FirebaseRepository
+import com.kn.amproject.data.Car
+import com.kn.amproject.repository.FirebaseRepository
 
 class ProfileViewModel : ViewModel() {
     private val repository = FirebaseRepository()

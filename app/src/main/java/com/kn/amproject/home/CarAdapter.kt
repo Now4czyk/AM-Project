@@ -1,4 +1,4 @@
-package com.revolshen.firebaseseriesmini.home
+package com.kn.amproject.home
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.revolshen.firebaseseriesmini.R
-import com.revolshen.firebaseseriesmini.data.Car
+import com.kn.amproject.R
+import com.kn.amproject.data.Car
 
 class CarAdapter(private val listener: OnCarItemLongClick) :
     RecyclerView.Adapter<CarAdapter.CarViewHolder>() {

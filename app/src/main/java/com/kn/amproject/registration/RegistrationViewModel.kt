@@ -1,8 +1,8 @@
-package com.revolshen.firebaseseriesmini.registration
+package com.kn.amproject.registration
 
 import androidx.lifecycle.ViewModel
-import com.revolshen.firebaseseriesmini.data.User
-import com.revolshen.firebaseseriesmini.repository.FirebaseRepository
+import com.kn.amproject.data.User
+import com.kn.amproject.repository.FirebaseRepository
 
 class RegistrationViewModel: ViewModel() {
     private val repository = FirebaseRepository()

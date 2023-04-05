@@ -1,10 +1,10 @@
-package com.revolshen.firebaseseriesmini.activites
+package com.kn.amproject.activites
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
-import com.revolshen.firebaseseriesmini.R
+import com.kn.amproject.R
 
 class RegistrationActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.revolshen.firebaseseriesmini
+package com.kn.amproject
 
 import org.junit.Test
 

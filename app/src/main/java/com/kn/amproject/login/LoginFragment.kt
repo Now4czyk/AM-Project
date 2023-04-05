@@ -1,20 +1,16 @@
-package com.revolshen.firebaseseriesmini.login
+package com.kn.amproject.login
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-import com.revolshen.firebaseseriesmini.BaseFragment
-import com.revolshen.firebaseseriesmini.R
-import com.revolshen.firebaseseriesmini.activites.MainActivity
+import com.kn.amproject.BaseFragment
+import com.kn.amproject.R
 import kotlinx.android.synthetic.main.fragment_sign_in.*
-import kotlinx.android.synthetic.main.fragment_sign_up.*
 
 class LoginFragment: BaseFragment(){
 

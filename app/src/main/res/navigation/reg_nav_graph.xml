@@ -7,7 +7,7 @@
     <fragment
         tools:layout="@layout/fragment_sign_in"
         android:id="@+id/loginFragment"
-        android:name="com.revolshen.firebaseseriesmini.login.LoginFragment"
+        android:name="com.kn.amproject.login.LoginFragment"
         android:label="LoginFragment" >
 
         <action
@@ -18,6 +18,6 @@
     <fragment
         tools:layout="@layout/fragment_sign_up"
         android:id="@+id/registrationFragment"
-        android:name="com.revolshen.firebaseseriesmini.registration.RegistrationFragment"
+        android:name="com.kn.amproject.registration.RegistrationFragment"
         android:label="RegistrationFragment" />
 </navigation>

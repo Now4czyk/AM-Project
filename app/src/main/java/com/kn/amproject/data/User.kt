@@ -1,4 +1,4 @@
-package com.revolshen.firebaseseriesmini.data
+package com.kn.amproject.data
 
 data class User(val uid: String? = null,
                 val name: String? = null ,

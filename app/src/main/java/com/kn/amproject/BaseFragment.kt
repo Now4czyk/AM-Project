@@ -1,10 +1,10 @@
-package com.revolshen.firebaseseriesmini
+package com.kn.amproject
 
 import android.content.Intent
 import android.os.Bundle
 import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
-import com.revolshen.firebaseseriesmini.activites.MainActivity
+import com.kn.amproject.activites.MainActivity
 
 abstract class BaseFragment: Fragment() {
 
