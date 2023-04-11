@@ -1,3 +1,5 @@
+package com.kn.amproject.preferences
+
 import android.os.Build
 import android.annotation.TargetApi
 import android.content.Context

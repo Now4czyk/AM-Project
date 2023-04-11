@@ -1,6 +1,6 @@
 package com.kn.amproject.activites
 
-import ContextWrapper
+import com.kn.amproject.preferences.ContextWrapper
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +11,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kn.amproject.R
 import com.kn.amproject.preferences.LanguagePreference
-import kotlinx.android.synthetic.main.fragment_profile.*
 
 class MainActivity : AppCompatActivity() {
     //languages

@@ -41,6 +41,7 @@
 
     <string name="row_name">Nazwa narzędzia</string>
     <string name="row_year">Rok produkcji narzędzia</string>
+    <string name="row_description">Opis</string>
 
 
     <!-- ********************************

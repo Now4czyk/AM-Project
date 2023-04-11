@@ -41,6 +41,7 @@
     ******************************** -->
     <string name="row_name">Tool name</string>
     <string name="row_year">Tool production year</string>
+    <string name="row_description">Description</string>
 
     <!-- ********************************
             TOASTS STRINGS
