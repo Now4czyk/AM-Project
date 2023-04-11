@@ -5,37 +5,37 @@
         ******************************** -->
 
     <string name="sign_up_hint_email">E-mail</string>
-    <string name="sign_up_hint_password">Hasło</string>
-    <string name="sign_up_hint_password_v2">Powtórz hasło</string>
-    <string name="sign_up_button">ZAREJESTRUJ</string>
-    <string name="sign_up_header">ZAREJESTRUJ SIĘ</string>
+    <string name="sign_up_hint_password">Password</string>
+    <string name="sign_up_hint_password_v2">Repeat password</string>
+    <string name="sign_up_button">SIGN UP</string>
+    <string name="sign_up_header">SIGN UP</string>
 
     <!-- ********************************
                 SIGN IN STRINGS
         ******************************** -->
-    <string name="tv_sign_in">ZALOGUJ SIĘ</string>
+    <string name="tv_sign_in">SIGN IN</string>
     <string name="sign_in_email_hint">E-mail</string>
-    <string name="sign_in_password_hint">Hasło</string>
-    <string name="sign_in_button">ZALOGUJ</string>
-    <string name="sign_in_register_button">ZAREJESTRUJ</string>
+    <string name="sign_in_password_hint">Password</string>
+    <string name="sign_in_button">SIGN IN</string>
+    <string name="sign_in_register_button">SIGN UP</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- ********************************
                 MAIN PAGE STRINGS
         ******************************** -->
-    <string name="main_page_tv_name">Imie</string>
-    <string name="main_page_ed_name">Twoje imie</string>
-    <string name="main_page_tv_surname">Nazwisko</string>
-    <string name="main_page_ed_surname">Twoje nazwisko</string>
+    <string name="main_page_tv_name">Name</string>
+    <string name="main_page_ed_name">Your name</string>
+    <string name="main_page_tv_surname">Surname</string>
+    <string name="main_page_ed_surname">Your surname</string>
     <string name="main_page_tv_email">E-mail</string>
-    <string name="main_page_ed_email">Twoj E-mail</string>
+    <string name="main_page_ed_email">Your E-mail</string>
 
     <!-- ********************************
                 NAVIGATIONS PAGE STRINGS
         ******************************** -->
-    <string name="tools">Narzędzia</string>
-    <string name="profile">Profil</string>
+    <string name="tools">Tools</string>
+    <string name="profile">Profile</string>
 
 
     <string name="foo">RecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerView
@@ -48,7 +48,7 @@
             LIST ROW STRINGS
     ******************************** -->
 
-    <string name="row_name">Nazwa samochodu</string>
-    <string name="row_year">Rocznik samochodu</string>
+    <string name="row_name">Tool name</string>
+    <string name="row_year">Tool production year</string>
 
 </resources>

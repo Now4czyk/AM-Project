@@ -1,6 +1,8 @@
 package com.kn.amproject.repository
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
@@ -18,44 +20,44 @@ class FirebaseRepository {
     private val auth = FirebaseAuth.getInstance()
     private val cloud = FirebaseFirestore.getInstance()
 
-    fun uploadUserPhoto(bytes: ByteArray){
+    fun uploadUserPhoto(bytes: ByteArray) {
         storage.getReference("users")
-                .child("${auth.currentUser!!.uid}.jpg")
-                .putBytes(bytes)
-                .addOnCompleteListener{
-                    Log.d(REPO_DEBUG, "COMPLETE UPLOAD PHOTO")
-                }
-                .addOnSuccessListener {
-                    getPhotoDownloadUrl(it.storage)
-                }
-                .addOnFailureListener{
-                    Log.d(REPO_DEBUG, it.message.toString())
-                }
+            .child("${auth.currentUser!!.uid}.jpg")
+            .putBytes(bytes)
+            .addOnCompleteListener {
+                Log.d(REPO_DEBUG, "COMPLETE UPLOAD PHOTO")
+            }
+            .addOnSuccessListener {
+                getPhotoDownloadUrl(it.storage)
+            }
+            .addOnFailureListener {
+                Log.d(REPO_DEBUG, it.message.toString())
+            }
     }
 
     private fun getPhotoDownloadUrl(storage: StorageReference) {
         storage.downloadUrl
-                .addOnSuccessListener {
-                    updateUserPhoto(it.toString())
-                }
-                .addOnFailureListener{
-                    Log.d(REPO_DEBUG, it.message.toString())
-                }
+            .addOnSuccessListener {
+                updateUserPhoto(it.toString())
+            }
+            .addOnFailureListener {
+                Log.d(REPO_DEBUG, it.message.toString())
+            }
     }
 
     private fun updateUserPhoto(url: String?) {
         cloud.collection("users")
-                .document(auth.currentUser!!.uid)
-                .update("image", url)
-                .addOnSuccessListener {
-                    Log.d(REPO_DEBUG, "UPDATE USER PHOTO!")
-                }
-                .addOnFailureListener{
-                    Log.d(REPO_DEBUG, it.message.toString())
-                }
+            .document(auth.currentUser!!.uid)
+            .update("image", url)
+            .addOnSuccessListener {
+                Log.d(REPO_DEBUG, "UPDATE USER PHOTO!")
+            }
+            .addOnFailureListener {
+                Log.d(REPO_DEBUG, it.message.toString())
+            }
     }
 
-    fun getUserData(): LiveData<User>{
+    fun getUserData(): LiveData<User> {
         val cloudResult = MutableLiveData<User>()
         val uid = auth.currentUser?.uid
 
@@ -66,13 +68,14 @@ class FirebaseRepository {
                 val user = it.toObject(User::class.java)
                 cloudResult.postValue(user)
             }
-            .addOnFailureListener{
+            .addOnFailureListener {
                 Log.d(REPO_DEBUG, it.message.toString())
             }
 
         return cloudResult
     }
-    fun getTools(): LiveData<List<Tool>>{
+
+    fun getTools(): LiveData<List<Tool>> {
         val cloudResult = MutableLiveData<List<Tool>>()
 
         cloud.collection("tools")
@@ -81,64 +84,69 @@ class FirebaseRepository {
                 val user = it.toObjects(Tool::class.java)
                 cloudResult.postValue(user)
             }
-            .addOnFailureListener{
+            .addOnFailureListener {
                 Log.d(REPO_DEBUG, it.message.toString())
             }
         return cloudResult
     }
+
     fun getFavTools(list: List<String>?): LiveData<List<Tool>> {
         val cloudResult = MutableLiveData<List<Tool>>()
 
-        if(!list.isNullOrEmpty())
+        if (!list.isNullOrEmpty())
             cloud.collection("tools")
-               .whereIn("id", list)
-               .get()
-               .addOnSuccessListener {
-                   val resultList = it.toObjects(Tool::class.java)
-                   cloudResult.postValue(resultList)
-               }
-               .addOnFailureListener{
-                   Log.d(REPO_DEBUG, it.message.toString())
-               }
+                .whereIn("id", list)
+                .get()
+                .addOnSuccessListener {
+                    val resultList = it.toObjects(Tool::class.java)
+                    cloudResult.postValue(resultList)
+                }
+                .addOnFailureListener {
+                    Log.d(REPO_DEBUG, it.message.toString())
+                }
         return cloudResult
     }
-    fun addFavTool(tool : Tool){
+
+    fun addFavTool(tool: Tool, context: Context) {
         cloud.collection("users")
             .document(auth.currentUser?.uid!!)
             .update("favTools", FieldValue.arrayUnion(tool.id))
             .addOnSuccessListener {
-                Log.d(REPO_DEBUG, "Dodana do ulubionych")
+                Toast.makeText(context, "Dodano do ulubionych", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener{
+            .addOnFailureListener {
                 Log.d(REPO_DEBUG, it.message.toString())
             }
     }
-    fun removeFavTool(tool : Tool){
+
+    fun removeFavTool(tool: Tool, context: Context) {
         cloud.collection("users")
             .document(auth.currentUser?.uid!!)
             .update("favTools", FieldValue.arrayRemove(tool.id))
             .addOnSuccessListener {
-                Log.d(REPO_DEBUG, "Dodana do ulubionych")
+                Toast.makeText(context, "Usunięto z ulubionych", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener{
+            .addOnFailureListener {
                 Log.d(REPO_DEBUG, it.message.toString())
             }
     }
-    fun createNewUser(user: User){
+
+    fun createNewUser(user: User) {
         cloud.collection("users")
-                .document(user.uid!!)
-                .set(user)
+            .document(user.uid!!)
+            .set(user)
     }
-    fun editProfileData(map: Map<String, String>){
+
+    fun editProfileData(map: Map<String, String>) {
         cloud.collection("users")
-                .document(auth.currentUser!!.uid)
-                .update(map)
-                .addOnSuccessListener {
-                    Log.d(REPO_DEBUG, "Zaktualizowano dane!")
-                }
-                .addOnFailureListener{
-                    Log.d(REPO_DEBUG, it.message.toString())
-                }
+            .document(auth.currentUser!!.uid)
+            .update(map)
+            .addOnSuccessListener {
+                Log.d(REPO_DEBUG, "Zaktualizowano dane!")
+            }
+            .addOnFailureListener {
+                Log.d(REPO_DEBUG, it.message.toString())
+            }
     }
 
 }

@@ -21,8 +21,10 @@ class HomeFragment : BaseFragment(), OnToolItemLongClick {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -33,7 +35,7 @@ class HomeFragment : BaseFragment(), OnToolItemLongClick {
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.logout_action -> {
                 auth.signOut()
                 requireActivity().finish()
@@ -50,13 +52,13 @@ class HomeFragment : BaseFragment(), OnToolItemLongClick {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        homeVm.tools.observe(viewLifecycleOwner, {list ->
+        homeVm.tools.observe(viewLifecycleOwner, { list ->
             adapter.setTools(list)
         })
     }
 
     override fun onToolLongClick(tool: Tool, position: Int) {
-        homeVm.addFavTool(tool)
+        homeVm.addFavTool(tool, activity?.applicationContext!!)
     }
 
 }

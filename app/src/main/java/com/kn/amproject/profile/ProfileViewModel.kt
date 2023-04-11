@@ -1,5 +1,6 @@
 package com.kn.amproject.profile
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
 import com.kn.amproject.data.Tool
@@ -12,13 +13,16 @@ class ProfileViewModel : ViewModel() {
     val favTools = user.switchMap {
         repository.getFavTools(it.favTools)
     }
-    fun removeFavTool(tool: Tool){
-        repository.removeFavTool(tool)
+
+    fun removeFavTool(tool: Tool, context: Context) {
+        repository.removeFavTool(tool, context)
     }
-    fun editProfileData(map: Map<String, String>){
+
+    fun editProfileData(map: Map<String, String>) {
         repository.editProfileData(map)
     }
-    fun uploadUserPhoto(bytes: ByteArray){
+
+    fun uploadUserPhoto(bytes: ByteArray) {
         repository.uploadUserPhoto(bytes)
     }
 
