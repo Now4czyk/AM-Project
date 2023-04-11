@@ -108,13 +108,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Favourite cars"
+                android:text="Favourite tools"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="italic|bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerFavCars"
+                android:id="@+id/recyclerFavTools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="-9dp"

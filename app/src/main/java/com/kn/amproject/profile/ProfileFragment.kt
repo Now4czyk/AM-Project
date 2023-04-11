@@ -14,20 +14,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.kn.amproject.BaseFragment
 import com.kn.amproject.R
-import com.kn.amproject.data.Car
+import com.kn.amproject.data.Tool
 import com.kn.amproject.data.User
-import com.kn.amproject.home.CarAdapter
-import com.kn.amproject.home.OnCarItemLongClick
+import com.kn.amproject.home.ToolAdapter
+import com.kn.amproject.home.OnToolItemLongClick
 import kotlinx.android.synthetic.main.fragment_profile.*
 import java.io.ByteArrayOutputStream
 import java.lang.Exception
 
-class ProfileFragment : BaseFragment(), OnCarItemLongClick {
+class ProfileFragment : BaseFragment(), OnToolItemLongClick {
     private val PROFILE_DEBUG = "PROFILE_DEBUG"
     private val REQUEST_IMAGE_CAPTURE = 1
 
     private val profileVm by viewModels<ProfileViewModel>()
-    private val adapter = CarAdapter(this)
+    private val adapter = ToolAdapter(this)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -37,8 +37,8 @@ class ProfileFragment : BaseFragment(), OnCarItemLongClick {
         super.onViewCreated(view, savedInstanceState)
         setupSubmitDataClick()
         setupTakePictureClick()
-        recyclerFavCars.layoutManager = LinearLayoutManager(requireContext())
-        recyclerFavCars.adapter = adapter
+        recyclerFavTools.layoutManager = LinearLayoutManager(requireContext())
+        recyclerFavTools.adapter = adapter
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -47,15 +47,15 @@ class ProfileFragment : BaseFragment(), OnCarItemLongClick {
             bindUserData(user)
         })
 
-        profileVm.favCars.observe(viewLifecycleOwner, {list ->
+        profileVm.favTools.observe(viewLifecycleOwner, {list ->
             list?.let {
-                adapter.setCars(it)
+                adapter.setTools(it)
             }
         })
     }
-    override fun onCarLongClick(car: Car, position: Int) {
-        profileVm.removeFavCar(car)
-        adapter.removeCar(car, position)
+    override fun onToolLongClick(tool: Tool, position: Int) {
+        profileVm.removeFavTool(tool)
+        adapter.removeTool(tool, position)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

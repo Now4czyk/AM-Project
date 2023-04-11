@@ -7,14 +7,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.kn.amproject.BaseFragment
 import com.kn.amproject.R
-import com.kn.amproject.data.Car
+import com.kn.amproject.data.Tool
 import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : BaseFragment(), OnCarItemLongClick {
+class HomeFragment : BaseFragment(), OnToolItemLongClick {
 
     private val auth = FirebaseAuth.getInstance()
     private val homeVm by viewModels<HomeViewModel>()
-    private val adapter = CarAdapter(this)
+    private val adapter = ToolAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
@@ -50,13 +50,13 @@ class HomeFragment : BaseFragment(), OnCarItemLongClick {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        homeVm.cars.observe(viewLifecycleOwner, {list ->
-            adapter.setCars(list)
+        homeVm.tools.observe(viewLifecycleOwner, {list ->
+            adapter.setTools(list)
         })
     }
 
-    override fun onCarLongClick(car: Car, position: Int) {
-        homeVm.addFavCar(car)
+    override fun onToolLongClick(tool: Tool, position: Int) {
+        homeVm.addFavTool(tool)
     }
 
 }

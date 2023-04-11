@@ -2,18 +2,18 @@ package com.kn.amproject.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
-import com.kn.amproject.data.Car
+import com.kn.amproject.data.Tool
 import com.kn.amproject.repository.FirebaseRepository
 
 class ProfileViewModel : ViewModel() {
     private val repository = FirebaseRepository()
 
     val user = repository.getUserData()
-    val favCars = user.switchMap {
-        repository.getFavCars(it.favCars)
+    val favTools = user.switchMap {
+        repository.getFavTools(it.favTools)
     }
-    fun removeFavCar(car: Car){
-        repository.removeFavCar(car)
+    fun removeFavTool(tool: Tool){
+        repository.removeFavTool(tool)
     }
     fun editProfileData(map: Map<String, String>){
         repository.editProfileData(map)

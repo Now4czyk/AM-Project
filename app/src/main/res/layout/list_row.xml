@@ -17,7 +17,7 @@
 
 
     <ImageView
-        android:id="@+id/carImage"
+        android:id="@+id/toolImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,22 +27,22 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/carName"
+        android:id="@+id/toolName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
         android:text="@string/row_name"
         android:textColor="@color/light_black"
         android:textSize="@dimen/tv_profile_page_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/carProductionYear"
+        app:layout_constraintBottom_toTopOf="@+id/toolProductionYear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.189"
-        app:layout_constraintStart_toEndOf="@+id/carImage"
+        app:layout_constraintStart_toEndOf="@+id/toolImage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.93" />
 
     <TextView
-        android:id="@+id/carProductionYear"
+        android:id="@+id/toolProductionYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -53,7 +53,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.126"
-        app:layout_constraintStart_toEndOf="@+id/carImage" />
+        app:layout_constraintStart_toEndOf="@+id/toolImage" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
