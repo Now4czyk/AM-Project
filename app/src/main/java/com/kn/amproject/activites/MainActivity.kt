@@ -2,25 +2,20 @@ package com.kn.amproject.activites
 
 import ContextWrapper
 import android.content.Context
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
-import androidx.core.view.get
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.vicky.sharedpreferenceexample.MyPreference
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kn.amproject.R
+import com.kn.amproject.preferences.LanguagePreference
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class MainActivity : AppCompatActivity() {
     //languages
-    lateinit var myPreference: MyPreference
+    lateinit var languagePreference: LanguagePreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,12 +32,12 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         //languages
-        myPreference = MyPreference(this)
+        languagePreference = LanguagePreference(this)
     }
 
     override fun attachBaseContext(newBase: Context?) {
-        myPreference = MyPreference(newBase!!)
-        val lang = myPreference.getLanguage()
+        languagePreference = LanguagePreference(newBase!!)
+        val lang = languagePreference.getLanguage()
         super.attachBaseContext(ContextWrapper.wrap(newBase, lang!!))
     }
 }

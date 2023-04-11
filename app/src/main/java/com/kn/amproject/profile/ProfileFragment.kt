@@ -13,7 +13,6 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.vicky.sharedpreferenceexample.MyPreference
 import com.kn.amproject.BaseFragment
 import com.kn.amproject.R
 import com.kn.amproject.activites.MainActivity
@@ -21,6 +20,7 @@ import com.kn.amproject.data.Tool
 import com.kn.amproject.data.User
 import com.kn.amproject.home.ToolAdapter
 import com.kn.amproject.home.OnToolItemLongClick
+import com.kn.amproject.preferences.LanguagePreference
 import kotlinx.android.synthetic.main.fragment_profile.*
 import java.io.ByteArrayOutputStream
 import java.lang.Exception
@@ -67,7 +67,7 @@ class ProfileFragment : BaseFragment(), OnToolItemLongClick {
             android.R.layout.simple_list_item_1,
             languageList
         )
-        val myPreference = MyPreference(activity?.applicationContext!!)
+        val myPreference = LanguagePreference(activity?.applicationContext!!)
         val lang = myPreference.getLanguage()
         val index = languageList.indexOf(lang)
         if (index >= 0) {

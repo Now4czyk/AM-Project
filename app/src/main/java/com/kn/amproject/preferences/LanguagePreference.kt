@@ -1,11 +1,11 @@
-package com.example.vicky.sharedpreferenceexample
+package com.kn.amproject.preferences
 
 import android.content.Context
 
 val PREFERENCE_NAME = "LanguagePreference"
 val PREFERENCE_LANGUAGE = "Language"
 
-class MyPreference(context: Context) {
+class LanguagePreference(context: Context) {
     val preference = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
 
     fun getLanguage(): String? {
