@@ -18,8 +18,6 @@
     <string name="sign_in_password_hint">Password</string>
     <string name="sign_in_button">SIGN IN</string>
     <string name="sign_in_register_button">SIGN UP</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- ********************************
                 MAIN PAGE STRINGS
@@ -32,23 +30,28 @@
     <string name="main_page_ed_email">Your E-mail</string>
 
     <!-- ********************************
-                NAVIGATIONS PAGE STRINGS
+                NAVIGATION STRINGS
         ******************************** -->
     <string name="tools">Tools</string>
     <string name="profile">Profile</string>
 
 
-    <string name="foo">RecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerView
-    RecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerView
-    RecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerView
-    RecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerView
-    RecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerView</string>
-
     <!-- ********************************
             LIST ROW STRINGS
     ******************************** -->
-
     <string name="row_name">Tool name</string>
     <string name="row_year">Tool production year</string>
 
+    <!-- ********************************
+            TOASTS STRINGS
+    ******************************** -->
+    <string name="removedFavTool">Removed from favourites</string>
+    <string name="addedFavTool">Added to favourites</string>
+
+    <!-- ********************************
+            OTHER STRINGS
+    ******************************** -->
+    <string name="changeLanguage">Change language</string>
+    <string name="favouriteTools">Favourite tools</string>
+    <string name="submit">Submit</string>
 </resources>

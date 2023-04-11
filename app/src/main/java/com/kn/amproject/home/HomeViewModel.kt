@@ -9,7 +9,7 @@ class HomeViewModel : ViewModel() {
     private val repository = FirebaseRepository()
     val tools = repository.getTools()
 
-    fun addFavTool(tool: Tool, context: Context) {
-        repository.addFavTool(tool, context)
+    fun addFavTool(tool: Tool, context: Context, msg: String) {
+        repository.addFavTool(tool, context, msg)
     }
 }

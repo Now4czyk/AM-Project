@@ -80,7 +80,11 @@ class ProfileFragment : BaseFragment(), OnToolItemLongClick {
     }
 
     override fun onToolLongClick(tool: Tool, position: Int) {
-        profileVm.removeFavTool(tool, activity?.applicationContext!!)
+        profileVm.removeFavTool(
+            tool,
+            activity?.applicationContext!!,
+            getString(R.string.removedFavTool)
+        )
         adapter.removeTool(tool, position)
     }
 

@@ -58,7 +58,7 @@ class HomeFragment : BaseFragment(), OnToolItemLongClick {
     }
 
     override fun onToolLongClick(tool: Tool, position: Int) {
-        homeVm.addFavTool(tool, activity?.applicationContext!!)
+        homeVm.addFavTool(tool, activity?.applicationContext!!, getString(R.string.addedFavTool))
     }
 
 }

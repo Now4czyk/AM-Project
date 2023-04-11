@@ -14,8 +14,8 @@ class ProfileViewModel : ViewModel() {
         repository.getFavTools(it.favTools)
     }
 
-    fun removeFavTool(tool: Tool, context: Context) {
-        repository.removeFavTool(tool, context)
+    fun removeFavTool(tool: Tool, context: Context, msg: String) {
+        repository.removeFavTool(tool, context, msg)
     }
 
     fun editProfileData(map: Map<String, String>) {

@@ -107,24 +107,24 @@ class FirebaseRepository {
         return cloudResult
     }
 
-    fun addFavTool(tool: Tool, context: Context) {
+    fun addFavTool(tool: Tool, context: Context, msg: String) {
         cloud.collection("users")
             .document(auth.currentUser?.uid!!)
             .update("favTools", FieldValue.arrayUnion(tool.id))
             .addOnSuccessListener {
-                Toast.makeText(context, "Dodano do ulubionych", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
                 Log.d(REPO_DEBUG, it.message.toString())
             }
     }
 
-    fun removeFavTool(tool: Tool, context: Context) {
+    fun removeFavTool(tool: Tool, context: Context, msg: String) {
         cloud.collection("users")
             .document(auth.currentUser?.uid!!)
             .update("favTools", FieldValue.arrayRemove(tool.id))
             .addOnSuccessListener {
-                Toast.makeText(context, "Usunięto z ulubionych", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
                 Log.d(REPO_DEBUG, it.message.toString())
