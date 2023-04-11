@@ -31,6 +31,12 @@
     <string name="main_page_tv_email">E-mail</string>
     <string name="main_page_ed_email">Twoj E-mail</string>
 
+    <!-- ********************************
+                NAVIGATIONS PAGE STRINGS
+        ******************************** -->
+    <string name="tools">Narzędzia</string>
+    <string name="profile">Profil</string>
+
 
     <string name="foo">RecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerView
     RecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerViewRecyclerView

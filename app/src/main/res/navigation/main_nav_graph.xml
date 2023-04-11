@@ -8,7 +8,7 @@
         tools:layout="@layout/fragment_home"
         android:id="@+id/homeFragment"
         android:name="com.kn.amproject.home.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="@string/tools" >
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
@@ -17,5 +17,5 @@
         tools:layout="@layout/fragment_profile"
         android:id="@+id/profileFragment"
         android:name="com.kn.amproject.profile.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="@string/profile" />
 </navigation>
