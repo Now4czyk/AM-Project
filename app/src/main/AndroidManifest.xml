@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kn.amproject">
 
+    <!--  PERMISSIONS FOR INTERNET AND CAMERA  -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -12,9 +13,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AMProject">
-        <activity
-            android:name=".activites.SettingsActivity"
-            android:exported="false" />
         <activity android:name=".activites.RegistrationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

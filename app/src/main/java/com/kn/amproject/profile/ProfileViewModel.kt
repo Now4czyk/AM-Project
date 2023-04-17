@@ -11,6 +11,7 @@ class ProfileViewModel : ViewModel() {
 
     val user = repository.getUserData()
     val favTools = user.switchMap {
+        //switchMap that allows to fetch only these tools that are favourite
         repository.getFavTools(it.favTools)
     }
 

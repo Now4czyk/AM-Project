@@ -17,5 +17,4 @@ class LanguagePreference(context: Context) {
         editor.putString(PREFERENCE_LANGUAGE, language)
         editor.apply()
     }
-
 }

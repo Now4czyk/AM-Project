@@ -14,6 +14,8 @@ class HomeFragment : BaseFragment(), OnToolItemLongClick {
 
     private val auth = FirebaseAuth.getInstance()
     private val homeVm by viewModels<HomeViewModel>()
+
+    //setting listening by adapter to this fragment
     private val adapter = ToolAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,12 +48,15 @@ class HomeFragment : BaseFragment(), OnToolItemLongClick {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //connecting context
         recyclerView_home.layoutManager = LinearLayoutManager(requireContext())
+        //connecting adapter
         recyclerView_home.adapter = adapter
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        //if we receive tools from firebase then set them to adapter
         homeVm.tools.observe(viewLifecycleOwner, { list ->
             adapter.setTools(list)
         })
@@ -60,5 +65,4 @@ class HomeFragment : BaseFragment(), OnToolItemLongClick {
     override fun onToolLongClick(tool: Tool, position: Int) {
         homeVm.addFavTool(tool, activity?.applicationContext!!, getString(R.string.addedFavTool))
     }
-
 }

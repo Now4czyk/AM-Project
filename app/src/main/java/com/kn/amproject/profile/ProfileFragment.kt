@@ -32,6 +32,8 @@ class ProfileFragment : BaseFragment(), OnToolItemLongClick {
     private val REQUEST_IMAGE_CAPTURE = 1
 
     private val profileVm by viewModels<ProfileViewModel>()
+
+    //setting listening by adapter to this fragment
     private val adapter = ToolAdapter(this)
 
     override fun onCreateView(
@@ -45,7 +47,9 @@ class ProfileFragment : BaseFragment(), OnToolItemLongClick {
         super.onViewCreated(view, savedInstanceState)
         setupSubmitDataClick()
         setupTakePictureClick()
+        //connecting context
         recyclerFavTools.layoutManager = LinearLayoutManager(requireContext())
+        //connecting adapter
         recyclerFavTools.adapter = adapter
     }
 
@@ -85,9 +89,12 @@ class ProfileFragment : BaseFragment(), OnToolItemLongClick {
             activity?.applicationContext!!,
             getString(R.string.removedFavTool)
         )
+        //updating adapter
         adapter.removeTool(tool, position)
     }
 
+    //receive the photo from try catch in takePicture(), set as a profile photo and upload it to
+    //storage
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
@@ -107,6 +114,7 @@ class ProfileFragment : BaseFragment(), OnToolItemLongClick {
         }
     }
 
+    //open camera after click
     private fun setupTakePictureClick() {
         userImage.setOnClickListener {
             takePicture()
@@ -114,8 +122,10 @@ class ProfileFragment : BaseFragment(), OnToolItemLongClick {
     }
 
     private fun takePicture() {
+        //take a picture
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE_SECURE)
         try {
+            //starting activity to receive a photo
             startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
         } catch (exc: Exception) {
             Log.d(PROFILE_DEBUG, exc.message.toString())
@@ -142,6 +152,4 @@ class ProfileFragment : BaseFragment(), OnToolItemLongClick {
             profileVm.editProfileData(map)
         }
     }
-
-
 }

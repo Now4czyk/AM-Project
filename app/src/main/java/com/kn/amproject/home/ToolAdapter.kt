@@ -10,6 +10,8 @@ import com.bumptech.glide.Glide
 import com.kn.amproject.R
 import com.kn.amproject.data.Tool
 
+//adapter created because of recycleView so that it is easy to manipulate with changing the list and
+//manipulation with it
 class ToolAdapter(private val listener: OnToolItemLongClick) :
     RecyclerView.Adapter<ToolAdapter.ToolViewHolder>() {
 
@@ -18,6 +20,7 @@ class ToolAdapter(private val listener: OnToolItemLongClick) :
     fun setTools(list: List<Tool>) {
         toolsList.clear()
         toolsList.addAll(list)
+        //informing adapter about the fact that data has changed
         notifyDataSetChanged()
     }
 
@@ -36,6 +39,7 @@ class ToolAdapter(private val listener: OnToolItemLongClick) :
         bindData(holder)
     }
 
+    //connecting data
     private fun bindData(holder: ToolViewHolder) {
         val name = holder.itemView.findViewById<TextView>(R.id.toolName)
         val description = holder.itemView.findViewById<TextView>(R.id.description)
@@ -54,6 +58,8 @@ class ToolAdapter(private val listener: OnToolItemLongClick) :
         return toolsList.size
     }
 
+    //listening to the position in which there happens an event of long click
+    //then we send a position and a tool that was clicked (bottom of this file)
     inner class ToolViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         init {
             view.setOnLongClickListener() {

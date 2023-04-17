@@ -20,14 +20,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //catching our view
         val navView: BottomNavigationView = findViewById(R.id.bottomNavView)
 
+        //the place of our fragment to be changed while switching
         val navController = findNavController(R.id.mainNavHost)
+        //connection with appBar which is the bar at the top of our app so that we have proper
+        // titles which are home and profile
         val appBarConfiguration = AppBarConfiguration(
             setOf(R.id.homeFragment, R.id.profileFragment)
         )
 
+        //connecting app bar with navigation
         setupActionBarWithNavController(navController, appBarConfiguration)
+        //settting at the bottom our navigation
         navView.setupWithNavController(navController)
 
         //languages

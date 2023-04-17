@@ -17,12 +17,16 @@ class RegistrationActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        //check if user is logged in, if it is then activate MainActivity
         isCurrentUser()
     }
 
     private fun isCurrentUser() {
-        fbAuth.currentUser?.let {auth ->
+        fbAuth.currentUser?.let { auth ->
+            //activate MainActivity
             val intent = Intent(applicationContext, MainActivity::class.java).apply {
+                //flags are set to prevent coming back to registration activity after logging in
+                //instead user will be redirected outside an app
                 flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             }
             startActivity(intent)

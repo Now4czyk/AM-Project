@@ -20,9 +20,12 @@ class FirebaseRepository {
     private val auth = FirebaseAuth.getInstance()
     private val cloud = FirebaseFirestore.getInstance()
 
+    //upload user photo to storage
     fun uploadUserPhoto(bytes: ByteArray) {
         storage.getReference("users")
+            //find or create jpg
             .child("${auth.currentUser!!.uid}.jpg")
+            //put or post photo
             .putBytes(bytes)
             .addOnCompleteListener {
                 Log.d(REPO_DEBUG, "COMPLETE UPLOAD PHOTO")
@@ -35,6 +38,7 @@ class FirebaseRepository {
             }
     }
 
+    //get from storage an url to photo in order to update it in a cloud with users data
     private fun getPhotoDownloadUrl(storage: StorageReference) {
         storage.downloadUrl
             .addOnSuccessListener {
@@ -45,6 +49,7 @@ class FirebaseRepository {
             }
     }
 
+    //update url to photo in users cloud
     private fun updateUserPhoto(url: String?) {
         cloud.collection("users")
             .document(auth.currentUser!!.uid)
@@ -59,13 +64,16 @@ class FirebaseRepository {
 
     fun getUserData(): LiveData<User> {
         val cloudResult = MutableLiveData<User>()
+        //currently logged in user
         val uid = auth.currentUser?.uid
-
+        //get more info about the current user
         cloud.collection("users")
             .document(uid!!)
             .get()
             .addOnSuccessListener {
+                //mapping to our user object
                 val user = it.toObject(User::class.java)
+                //setting our live data initiated in a higher scope
                 cloudResult.postValue(user)
             }
             .addOnFailureListener {
@@ -148,5 +156,4 @@ class FirebaseRepository {
                 Log.d(REPO_DEBUG, it.message.toString())
             }
     }
-
 }

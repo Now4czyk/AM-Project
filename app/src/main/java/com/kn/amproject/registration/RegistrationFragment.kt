@@ -12,7 +12,7 @@ import com.kn.amproject.BaseFragment
 import com.kn.amproject.R
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 
-class RegistrationFragment: BaseFragment() {
+class RegistrationFragment : BaseFragment() {
     private val REG_DEBUG = "REG_DEBUG"
     private val fbAuth = FirebaseAuth.getInstance()
     private val regVm by viewModels<RegistrationViewModel>()
@@ -36,23 +36,30 @@ class RegistrationFragment: BaseFragment() {
             val pass = pass_registration.text?.trim().toString()
             val repeatPass = repeat_pass_registration.text?.trim().toString()
 
-            if(pass==repeatPass){
+            if (pass == repeatPass) {
                 fbAuth.createUserWithEmailAndPassword(email, pass)
-                    .addOnSuccessListener {authRes ->
-                       if(authRes.user != null){
-                           val user = com.kn.amproject.data.User(
-                                   authRes.user!!.uid,
-                                   "",
-                                   "",
-                                   authRes.user!!.email,
-                                   listOf(),
-                                   "")
-                           regVm.createNewUser(user)
-                           startApp()
-                       }
+                    .addOnSuccessListener { authRes ->
+                        if (authRes.user != null) {
+                            //create user base on the model that is situated in data directory to
+                            //create user in our database
+                            val user = com.kn.amproject.data.User(
+                                authRes.user!!.uid,
+                                "",
+                                "",
+                                authRes.user!!.email,
+                                listOf(),
+                                ""
+                            )
+                            regVm.createNewUser(user)
+                            startApp()
+                        }
                     }
-                    .addOnFailureListener{exc ->
-                        Snackbar.make(requireView(), "Upss...Something went wrong...", Snackbar.LENGTH_SHORT)
+                    .addOnFailureListener { exc ->
+                        Snackbar.make(
+                            requireView(),
+                            "Upss...Something went wrong...",
+                            Snackbar.LENGTH_SHORT
+                        )
                             .show()
                         Log.d(REG_DEBUG, exc.message.toString())
                     }

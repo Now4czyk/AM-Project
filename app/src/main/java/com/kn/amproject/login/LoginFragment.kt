@@ -12,7 +12,7 @@ import com.kn.amproject.BaseFragment
 import com.kn.amproject.R
 import kotlinx.android.synthetic.main.fragment_sign_in.*
 
-class LoginFragment: BaseFragment(){
+class LoginFragment : BaseFragment() {
 
     private val fbAuth = FirebaseAuth.getInstance()
     private val LOG_DEUBG = "LOG_DEBUG"
@@ -45,10 +45,15 @@ class LoginFragment: BaseFragment(){
 
             fbAuth.signInWithEmailAndPassword(email, pass)
                 .addOnSuccessListener { authRes ->
-                    if(authRes.user != null) startApp()
+                    //activate MainActivity
+                    if (authRes.user != null) startApp()
                 }
-                .addOnFailureListener{ exc ->
-                    Snackbar.make(requireView(), "Upss...Something went wrong...", Snackbar.LENGTH_SHORT)
+                .addOnFailureListener { exc ->
+                    Snackbar.make(
+                        requireView(),
+                        "Upss...Something went wrong...",
+                        Snackbar.LENGTH_SHORT
+                    )
                         .show()
                     Log.d(LOG_DEUBG, exc.message.toString())
                 }
